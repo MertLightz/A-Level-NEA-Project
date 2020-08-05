@@ -1,18 +1,9 @@
 import sys
 import xlrd
-import read_stock
 from PyQt5.QtWidgets import QWidget,QApplication,QTableWidget,QTableWidgetItem,QVBoxLayout
 
 wb = xlrd.open_workbook('stock.xlsx')
 sheet = wb.sheet_by_index(0)
-
-def getSelectedItemData():
-    for currentItem in tableWidget.selectedItems():
-        if currentItem.text() == '':
-            break
-        for i in range(0,100):
-            print()
-        print('Row : ' + str(currentItem.row()),'\nColumn: ' + str(currentItem.column()) + '\nText: ' + currentItem.text())
 
 app = QApplication(sys.argv)
 
@@ -42,7 +33,6 @@ for i in range(0, number_of_rows):
     tableWidget.setItem(i,1,QTableWidgetItem(str(age)))
     tableWidget.setItem(i,2,QTableWidgetItem(job))
 
-tableWidget.doubleClicked.connect(getSelectedItemData)
 layout.addWidget(tableWidget)
 qwidget.setLayout(layout)
 qwidget.show()
