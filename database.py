@@ -1,7 +1,8 @@
 import sqlite3
+from tkinter import *
 
 # Connect to database
-connector = sqlite3.connect('tesco.db')
+connector = sqlite3.connect('shop.db')
 
 # Create a cursor
 cursor = connector.cursor()
@@ -52,3 +53,6 @@ connector.commit()
 
 # Close connection
 connector.close()
+
+root = Tk()
+root.title('STOCK CONTROL SYSTEM')
