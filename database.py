@@ -56,3 +56,11 @@ connector.close()
 
 root = Tk()
 root.title('STOCK CONTROL SYSTEM')
+
+nameLabel = Label(root, text = 'ITEM NAME')
+nameLabel.grid(column = 0, row = 0)
+
+currentStockLabel = Label(root, text = 'STOCK')
+currentStockLabel.grid(column = 2, row = 0)
+
+root.mainloop()
