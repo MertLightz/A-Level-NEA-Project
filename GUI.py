@@ -2,6 +2,7 @@ from PyQt5 import QtGui
 from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import QApplication,  QWidget, QTableWidget, QTableWidgetItem, QVBoxLayout, QPushButton
 from sys import platform
+import sqlite3
 import sys
 
 class Window(QWidget):
