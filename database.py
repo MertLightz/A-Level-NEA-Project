@@ -1,5 +1,6 @@
 from PyQt5 import QtGui
-from PyQt5.QtWidgets import QApplication,  QWidget, QTableWidget, QTableWidgetItem, QVBoxLayout
+from PyQt5.QtCore import pyqtSlot
+from PyQt5.QtWidgets import QApplication,  QWidget, QTableWidget, QTableWidgetItem, QVBoxLayout, QPushButton
 from sys import platform
 import sys
 
@@ -10,7 +11,7 @@ class Window(QWidget):
         self.title = "STOCK CONTROL SYSTEM"
         self.top = 100
         self.left = 100
-        self.width = 439
+        self.width = 565
         if platform == "darwin":
             self.height = 215
         elif platform == "win32":
@@ -18,12 +19,20 @@ class Window(QWidget):
         
         self.InitWindow()
 
+    @pyqtSlot()
+    def save_click(self):
+        print('SAVED')
+
     def InitWindow(self):
         self.setWindowTitle(self.title)
         self.setGeometry(self.top, self.left, self.width, self.height)
         self.creatingTables()
+        button = QPushButton('SAVE', self)
+        button.setToolTip('Save any changes made to the database.')
+        button.move(439,23)
+        button.clicked.connect(self.save_click)
         self.show()
-
+    
     def creatingTables(self):
         self.tableWidget = QTableWidget()
         self.tableWidget.setRowCount(5)
