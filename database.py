@@ -6,15 +6,14 @@ class Window(QWidget):
     def __init__(self):
         super().__init__()
 
-        self.title = "PyQt5 Tables"
+        self.title = "STOCK CONTROL SYSTEM"
         self.top = 100
         self.left = 100
         self.width = 460
         self.height = 215
-
-
+        self.height = 243
+        
         self.InitWindow()
-
 
     def InitWindow(self):
         self.setWindowIcon(QtGui.QIcon("icon.png"))
@@ -27,7 +26,7 @@ class Window(QWidget):
 
     def creatingTables(self):
         self.tableWidget = QTableWidget()
-        self.tableWidget.setRowCount(5)
+        self.tableWidget.setRowCount(6)
         self.tableWidget.setColumnCount(3)
 
         self.tableWidget.setItem(0,0, QTableWidgetItem("ITEM ID"))
@@ -56,12 +55,9 @@ class Window(QWidget):
         self.tableWidget.setItem(4,2, QTableWidgetItem("5"))
         self.tableWidget.setItem(4,3, QTableWidgetItem("£5.00"))
 
-        
-        
         self.vBoxLayout = QVBoxLayout()
         self.vBoxLayout.addWidget(self.tableWidget)
         self.setLayout(self.vBoxLayout)
-
 
 App = QApplication(sys.argv)
 window = Window()
