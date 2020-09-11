@@ -1,5 +1,6 @@
 from PyQt5 import QtGui
 from PyQt5.QtWidgets import QApplication,  QWidget, QTableWidget, QTableWidgetItem, QVBoxLayout
+from sys import platform
 import sys
 
 class Window(QWidget):
@@ -9,9 +10,12 @@ class Window(QWidget):
         self.title = "STOCK CONTROL SYSTEM"
         self.top = 100
         self.left = 100
-        self.width = 460
-        self.height = 215
-        self.height = 243
+        self.width = 539
+        if platform == "darwin":
+            self.height = 215
+        elif platform == "win32":
+            self.height = 197
+        #self.height = 243
         
         self.InitWindow()
 
@@ -26,8 +30,8 @@ class Window(QWidget):
 
     def creatingTables(self):
         self.tableWidget = QTableWidget()
-        self.tableWidget.setRowCount(6)
-        self.tableWidget.setColumnCount(3)
+        self.tableWidget.setRowCount(5)
+        self.tableWidget.setColumnCount(4)
 
         self.tableWidget.setItem(0,0, QTableWidgetItem("ITEM ID"))
         self.tableWidget.setItem(0,1, QTableWidgetItem("ITEM"))
