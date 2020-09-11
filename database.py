@@ -10,22 +10,18 @@ class Window(QWidget):
         self.title = "STOCK CONTROL SYSTEM"
         self.top = 100
         self.left = 100
-        self.width = 539
+        self.width = 439
         if platform == "darwin":
             self.height = 215
         elif platform == "win32":
             self.height = 197
-        #self.height = 243
         
         self.InitWindow()
 
     def InitWindow(self):
-        self.setWindowIcon(QtGui.QIcon("icon.png"))
         self.setWindowTitle(self.title)
         self.setGeometry(self.top, self.left, self.width, self.height)
-
         self.creatingTables()
-
         self.show()
 
     def creatingTables(self):
@@ -42,7 +38,6 @@ class Window(QWidget):
         self.tableWidget.setItem(1,1, QTableWidgetItem("Cadbury Crunchie"))
         self.tableWidget.setItem(1,2, QTableWidgetItem("5"))
         self.tableWidget.setItem(1,3, QTableWidgetItem("£0.60"))
-        self.tableWidget.setColumnWidth(1, 200)
 
         self.tableWidget.setItem(2,0, QTableWidgetItem("2"))
         self.tableWidget.setItem(2,1, QTableWidgetItem("Cadbury Dairy Milk"))
