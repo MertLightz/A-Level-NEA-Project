@@ -12,11 +12,11 @@ class Window(QWidget):
         self.title = "STOCK CONTROL SYSTEM"
         self.top = 100
         self.left = 100
-        self.width = 565
+        self.width = 650
         if platform == "darwin":
             self.height = 215
         elif platform == "win32":
-            self.height = 197
+            self.height = 197 #+31 per row
         
         self.InitWindow()
 
@@ -30,7 +30,7 @@ class Window(QWidget):
         self.creatingTables()
         button = QPushButton('SAVE', self)
         button.setToolTip('Save any changes made to the database.')
-        button.move(439,23)
+        button.move(532,23)
         button.clicked.connect(self.save_click)
         self.show()
     
@@ -38,6 +38,7 @@ class Window(QWidget):
         self.tableWidget = QTableWidget()
         self.tableWidget.setRowCount(5)
         self.tableWidget.setColumnCount(4)
+        self.tableWidget.setColumnWidth(1, 200)
 
         self.tableWidget.setItem(0,0, QTableWidgetItem("ITEM ID"))
         self.tableWidget.setItem(0,1, QTableWidgetItem("ITEM"))
